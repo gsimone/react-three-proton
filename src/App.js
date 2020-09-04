@@ -1,21 +1,30 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas } from "react-three-fiber";
 import { OrbitControls } from "drei";
-import Effects from "./Effects";
-import Scene from "./Scene";
+
+import Particles from './Particles'
 
 function App() {
+
   return (
     <Canvas
-      shadowMap
-      colorManagement
-      camera={{ position: [0, 0, 5], far: 50 }}
-      concurrent
+      camera={{ position: [0, 0, 500], far: 1000 }}
+      gl={{
+        powerPreference: 'high-performance',
+        alpha: false,
+        antialias: false,
+        stencil: false,
+        depth: false,
+      }}
     >
-      <color args={["red"]} attach="background" />
-      <Scene />
+      <color args={["#010101"]} attach="background" />
       <Effects />
       <OrbitControls />
+      <Suspense fallback={null}>
+        <Particles />
+      </Suspense>
+      <ambientLight />
+      <pointLight position={[0, 200, 200]} />
     </Canvas>
   );
 }
