@@ -7,7 +7,6 @@ import { useFrame, useResource, useThree } from 'react-three-fiber';
 import dot from './dot'
 import { useTextureLoader } from 'drei';
 
-
 import { 
   myCtx,
   Emitter,
@@ -17,7 +16,7 @@ import {
   Radius,
   Life,
   Position
- } from './stuff'
+ } from './proton'
 
 function CustomSettings() {
     
